@@ -243,6 +243,8 @@ p {
 }
 
 .profile_picture {
+  position: relative;
+  flex-shrink: 0;
   width: 100px;
   height: 100px;
 
@@ -250,7 +252,6 @@ p {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   background-color: black;
 
   align-self: center;
@@ -260,9 +261,15 @@ p {
   border: none;
 }
 
+/* Tombol edit ditempel di sudut foto, tidak ikut menggeser isi profil. */
 #edit_profile {
+  position: absolute;
+  right: -5px;
+  bottom: 0;
+
   width: 28px;
   height: 28px;
+  padding: 0;
 
   background-color: rgb(119, 118, 118);
   background-image: url("./img/pencil.png");
@@ -271,17 +278,13 @@ p {
   background-repeat: no-repeat;
   filter: invert(1);
 
-  transform: translateX(70px);
-  margin-bottom: 16px;
-
   border-radius: 50%;
   border: none;
-
   cursor: pointer;
 
   transition:
-    width 0.5s,
-    height 0.5s;
+    width 0.2s ease,
+    height 0.2s ease;
 }
 
 #edit_profile:hover {
@@ -428,7 +431,7 @@ input[type="text"]:focus {
 }
 
 #AllBut {
-  width: 49%;
+  width: 30%;
   padding: 14px 20px;
 
   margin-right: auto;
@@ -471,11 +474,13 @@ input[type="text"]:focus {
 }
 
 #FontBut {
-  width: 49%;
+  width: 30%;
   padding: 14px 20px;
 
   border: none;
   border-radius: 11px;
+
+  margin: auto;
 
   background: linear-gradient(
     135deg,
@@ -508,6 +513,48 @@ input[type="text"]:focus {
 }
 
 #FontBut:active {
+  transform: translateY(2px);
+}
+
+#AnimasiBut {
+  width: 30%;
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 11px;
+
+  margin-left: auto;
+
+  background: linear-gradient(
+    135deg,
+    var(--warna-aksen-terang),
+    var(--warna-aksen)
+  );
+  color: var(--warna-teks-tombol);
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  box-shadow: var(--bayangan-tombol);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+#AnimasiBut:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+
+  box-shadow: var(--bayangan-tombol-hover);
+}
+
+#AnimasiBut:active {
   transform: translateY(2px);
 }
 

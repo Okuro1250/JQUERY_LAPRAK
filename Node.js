@@ -34,13 +34,13 @@ $(document).ready(function () {
       }
 
       $pesanX.hide();
-      $pesan.show();
+      $pesan.stop(true, true).fadeIn(300);
       console.log("Berhasil mengubah data!");
     }
     //Validasi data yang tak terisi
     else {
       $pesan.hide();
-      $pesanX.show();
+      $pesanX.stop(true, true).fadeIn(300);
       console.log("Tidak ada perubahan");
     }
   });
@@ -60,10 +60,14 @@ $(document).ready(function () {
   const $profilePicture = $(".profile_picture");
   const $inputFoto = $("#input_foto");
 
-  const fotoTersimpan = localStorage.getItem("fotoProfil");
-
-  if (fotoTersimpan) {
-    $profilePicture.css("background-image", 'url("' + fotoTersimpan + '")');
+  // Ambil foto tersimpan dengan aman; localStorage bisa diblokir oleh browser tertentu.
+  try {
+    const fotoTersimpan = localStorage.getItem("fotoProfil");
+    if (fotoTersimpan) {
+      $profilePicture.css("background-image", 'url("' + fotoTersimpan + '")');
+    }
+  } catch (error) {
+    console.warn("Foto tersimpan tidak bisa dibaca oleh browser.", error);
   }
 
   $("#edit_profile").on("click", function () {
@@ -94,9 +98,19 @@ $(document).ready(function () {
         localStorage.setItem("fotoProfil", fotoBaru);
         alert("Foto profil berhasil disimpan!");
       } catch (error) {
-        alert("Foto gagal disimpan. Coba gunakan gambar yang lebih kecil.");
+        alert(
+          "Foto berhasil dipasang, tetapi tidak bisa disimpan permanen. Coba gambar yang lebih kecil.",
+        );
         console.error(error);
       }
+
+      // Kosongkan input agar file yang sama bisa dipilih lagi nanti.
+      $inputFoto.val("");
+    };
+
+    reader.onerror = function () {
+      alert("Gambar gagal dibaca. Coba pilih file gambar lain.");
+      $inputFoto.val("");
     };
 
     reader.readAsDataURL(file);
@@ -110,7 +124,31 @@ $(document).ready(function () {
     });
   });
 
-  // 5. Mengganti tema terang dan gelap
+  // 5. Animasi foto
+  $("#AnimasiBut").on("click", function () {
+    $profilePicture
+      .stop(true, false)
+      .animate(
+        {
+          left: "90px",
+          width: "200px",
+          height: "200px",
+        },
+        400,
+        "swing",
+      )
+      .animate(
+        {
+          left: "0px",
+          width: "100px",
+          height: "100px",
+        },
+        400,
+        "swing",
+      );
+  });
+
+  // 6. Mengganti tema terang dan gelap
   $("#theme").on("click", function () {
     $("body").toggleClass("dark-mode");
 
