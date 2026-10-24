@@ -3,87 +3,75 @@
 ========================================= */
 
 :root {
-  /* Warna dasar halaman */
-  --warna-latar: #f4f6fb;
-  --warna-cahaya-latar: #e9e7ff;
+  /* Palette baru: sage green + mint */
+  --warna-latar: #f3f7f5;
+  --warna-cahaya-latar: #dff2e9;
 
-  /* Warna teks */
-  --warna-teks-utama: #273047;
-  --warna-teks-sekunder: #475569;
-  --warna-teks-placeholder: #a0a7b7;
+  --warna-teks-utama: #20352f;
+  --warna-teks-sekunder: #526760;
+  --warna-teks-placeholder: #92a59d;
 
-  /* Warna kartu utama */
   --warna-kartu: #ffffff;
-  --warna-kartu-invert: #505050;
-  --warna-border-kartu: #ebeaf5;
+  --warna-kartu-invert: #24483e;
+  --warna-border-kartu: #dce9e2;
 
-  /* Warna aksen utama */
-  --warna-aksen: #5b4bdb;
-  --warna-aksen-terang: #7967f8;
-  --warna-aksen-muda: #b7a9ff;
-  --warna-aksen-rgb: 121, 103, 248;
+  --warna-aksen: #287a63;
+  --warna-aksen-terang: #43a083;
+  --warna-aksen-muda: #b8e3d2;
+  --warna-aksen-rgb: 67, 160, 131;
 
-  /* Warna panel biodata */
-  --warna-panel: #f6f4ff;
-  --warna-border-panel: #ece8ff;
+  --warna-panel: #edf7f1;
+  --warna-border-panel: #d6e9df;
 
-  /* Warna kotak data */
   --warna-data: #ffffff;
-  --warna-border-data: #ebe8fa;
+  --warna-border-data: #dcebe3;
 
-  /* Warna input */
-  --warna-input: #f9f9fd;
-  --warna-border-input: #e1e3ef;
-  --warna-border-input-hover: #c2bafa;
+  --warna-input: #f7faf8;
+  --warna-border-input: #d5e3db;
+  --warna-border-input-hover: #9bcdb9;
 
-  /* Warna tombol */
   --warna-teks-tombol: #ffffff;
-  --warna-outline-tombol: #c9c1ff;
+  --warna-outline-tombol: #b5e0cf;
 
-  /* Bayangan */
   --bayangan-kartu:
-    0 20px 50px rgba(43, 39, 90, 0.08), 0 4px 12px rgba(43, 39, 90, 0.04);
-
+    0 20px 50px rgba(32, 73, 58, 0.09), 0 4px 12px rgba(32, 73, 58, 0.04);
   --bayangan-tombol: 0 7px 16px rgba(var(--warna-aksen-rgb), 0.2);
-
   --bayangan-tombol-hover: 0 10px 22px rgba(var(--warna-aksen-rgb), 0.28);
 }
 
 body.dark-mode {
-  --warna-latar: #121212;
-  --warna-cahaya-latar: #1c1c1c;
+  --warna-latar: #101a17;
+  --warna-cahaya-latar: #1b332a;
 
-  --warna-teks-utama: #f5f5f5;
-  --warna-teks-sekunder: #cccccc;
-  --warna-teks-placeholder: #888888;
+  --warna-teks-utama: #edf7f1;
+  --warna-teks-sekunder: #c0d2c9;
+  --warna-teks-placeholder: #82988e;
 
-  --warna-kartu: #1e1e1e;
-  --warna-kartu-invert: #ffffff;
-  --warna-border-kartu: #333333;
+  --warna-kartu: #1a2923;
+  --warna-kartu-invert: #d6f1e4;
+  --warna-border-kartu: #30463c;
 
-  --warna-aksen: #a78bfa;
-  --warna-aksen-terang: #8b5cf6;
-  --warna-aksen-muda: #6d5ba6;
-  --warna-aksen-rgb: 139, 92, 246;
+  --warna-aksen: #8bd1b3;
+  --warna-aksen-terang: #4daa86;
+  --warna-aksen-muda: #315e4b;
+  --warna-aksen-rgb: 77, 170, 134;
 
-  --warna-panel: #252525;
-  --warna-border-panel: #383838;
+  --warna-panel: #20342b;
+  --warna-border-panel: #354e41;
 
-  --warna-data: #1e1e1e;
-  --warna-border-data: #383838;
+  --warna-data: #1a2923;
+  --warna-border-data: #344b3e;
 
-  --warna-input: #292929;
-  --warna-border-input: #444444;
-  --warna-border-input-hover: #8b5cf6;
+  --warna-input: #22332b;
+  --warna-border-input: #40594a;
+  --warna-border-input-hover: #6ab996;
 
   --warna-teks-tombol: #ffffff;
-  --warna-outline-tombol: #8b5cf6;
+  --warna-outline-tombol: #4daa86;
 
   --bayangan-kartu:
-    0 20px 50px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.2);
-
+    0 20px 50px rgba(0, 0, 0, 0.32), 0 4px 12px rgba(0, 0, 0, 0.18);
   --bayangan-tombol: 0 7px 16px rgba(var(--warna-aksen-rgb), 0.2);
-
   --bayangan-tombol-hover: 0 10px 22px rgba(var(--warna-aksen-rgb), 0.3);
 }
 
@@ -207,9 +195,9 @@ body {
 
 .Kotak2 {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-
-  gap: 18px;
+  /* Form di kiri, biodata di kanan dengan pembagian kolom asimetris */
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 22px;
   align-items: stretch;
 }
 
@@ -217,9 +205,15 @@ body {
    5. DATA BIODATA
 ========================================= */
 
-#KotakData {
+.Kotak.Input {
   grid-column: 1;
-  grid-row: 1 / span 3;
+  grid-row: 1;
+  min-width: 0;
+}
+
+#KotakData {
+  grid-column: 2;
+  grid-row: 1;
 
   padding: 22px;
 
@@ -243,8 +237,6 @@ p {
 }
 
 .profile_picture {
-  position: relative;
-  flex-shrink: 0;
   width: 100px;
   height: 100px;
 
@@ -252,6 +244,7 @@ p {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
   background-color: black;
 
   align-self: center;
@@ -261,15 +254,9 @@ p {
   border: none;
 }
 
-/* Tombol edit ditempel di sudut foto, tidak ikut menggeser isi profil. */
 #edit_profile {
-  position: absolute;
-  right: -5px;
-  bottom: 0;
-
   width: 28px;
   height: 28px;
-  padding: 0;
 
   background-color: rgb(119, 118, 118);
   background-image: url("./img/pencil.png");
@@ -278,13 +265,17 @@ p {
   background-repeat: no-repeat;
   filter: invert(1);
 
+  transform: translateX(70px);
+  margin-bottom: 16px;
+
   border-radius: 50%;
   border: none;
+
   cursor: pointer;
 
   transition:
-    width 0.2s ease,
-    height 0.2s ease;
+    width 0.5s,
+    height 0.5s;
 }
 
 #edit_profile:hover {
@@ -593,10 +584,15 @@ input[type="text"]:focus {
 
   #KotakData {
     grid-column: 1;
-    grid-row: auto;
+    grid-row: 1;
 
     min-height: 400px;
     padding: 16px;
+  }
+
+  .Kotak.Input {
+    grid-column: 1;
+    grid-row: 2;
   }
 
   #InputNama,
