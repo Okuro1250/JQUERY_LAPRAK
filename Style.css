@@ -1,0 +1,577 @@
+/* =========================================
+   0. COLOR PALETTE — UBAH WARNA DI SINI
+========================================= */
+
+:root {
+  /* Warna dasar halaman */
+  --warna-latar: #f4f6fb;
+  --warna-cahaya-latar: #e9e7ff;
+
+  /* Warna teks */
+  --warna-teks-utama: #273047;
+  --warna-teks-sekunder: #475569;
+  --warna-teks-placeholder: #a0a7b7;
+
+  /* Warna kartu utama */
+  --warna-kartu: #ffffff;
+  --warna-kartu-invert: #505050;
+  --warna-border-kartu: #ebeaf5;
+
+  /* Warna aksen utama */
+  --warna-aksen: #5b4bdb;
+  --warna-aksen-terang: #7967f8;
+  --warna-aksen-muda: #b7a9ff;
+  --warna-aksen-rgb: 121, 103, 248;
+
+  /* Warna panel biodata */
+  --warna-panel: #f6f4ff;
+  --warna-border-panel: #ece8ff;
+
+  /* Warna kotak data */
+  --warna-data: #ffffff;
+  --warna-border-data: #ebe8fa;
+
+  /* Warna input */
+  --warna-input: #f9f9fd;
+  --warna-border-input: #e1e3ef;
+  --warna-border-input-hover: #c2bafa;
+
+  /* Warna tombol */
+  --warna-teks-tombol: #ffffff;
+  --warna-outline-tombol: #c9c1ff;
+
+  /* Bayangan */
+  --bayangan-kartu:
+    0 20px 50px rgba(43, 39, 90, 0.08), 0 4px 12px rgba(43, 39, 90, 0.04);
+
+  --bayangan-tombol: 0 7px 16px rgba(var(--warna-aksen-rgb), 0.2);
+
+  --bayangan-tombol-hover: 0 10px 22px rgba(var(--warna-aksen-rgb), 0.28);
+}
+
+body.dark-mode {
+  --warna-latar: #121212;
+  --warna-cahaya-latar: #1c1c1c;
+
+  --warna-teks-utama: #f5f5f5;
+  --warna-teks-sekunder: #cccccc;
+  --warna-teks-placeholder: #888888;
+
+  --warna-kartu: #1e1e1e;
+  --warna-kartu-invert: #ffffff;
+  --warna-border-kartu: #333333;
+
+  --warna-aksen: #a78bfa;
+  --warna-aksen-terang: #8b5cf6;
+  --warna-aksen-muda: #6d5ba6;
+  --warna-aksen-rgb: 139, 92, 246;
+
+  --warna-panel: #252525;
+  --warna-border-panel: #383838;
+
+  --warna-data: #1e1e1e;
+  --warna-border-data: #383838;
+
+  --warna-input: #292929;
+  --warna-border-input: #444444;
+  --warna-border-input-hover: #8b5cf6;
+
+  --warna-teks-tombol: #ffffff;
+  --warna-outline-tombol: #8b5cf6;
+
+  --bayangan-kartu:
+    0 20px 50px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  --bayangan-tombol: 0 7px 16px rgba(var(--warna-aksen-rgb), 0.2);
+
+  --bayangan-tombol-hover: 0 10px 22px rgba(var(--warna-aksen-rgb), 0.3);
+}
+
+/* =========================================
+   1. PENGATURAN DASAR
+========================================= */
+
+.header-biodata {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#theme {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  margin-left: auto;
+  flex-shrink: 0;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  background: var(--warna-kartu-invert);
+  opacity: 100%;
+  color: var(--warna-teks-utama);
+  border: 1px solid var(--warna-border-kartu);
+  border-radius: 100%;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+#theme:hover {
+  transform: scale(1.08);
+}
+
+body {
+  min-height: 100vh;
+  padding: 24px;
+
+  display: grid;
+  place-items: center;
+
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  color: var(--warna-teks-utama);
+
+  background:
+    radial-gradient(
+      circle at top left,
+      var(--warna-cahaya-latar) 0,
+      transparent 38%
+    ),
+    var(--warna-latar);
+}
+
+/* =========================================
+   2. KOTAK UTAMA
+========================================= */
+
+.Kotak1 {
+  width: min(880px, 100%);
+  min-width: 0;
+  min-height: 600px;
+  padding: 36px;
+
+  background: var(--warna-kartu);
+  border: 1px solid var(--warna-border-kartu);
+  border-radius: 24px;
+  box-shadow: var(--bayangan-kartu);
+}
+
+/* =========================================
+   3. JUDUL BIODATA
+========================================= */
+
+#Judul {
+  position: relative;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  color: var(--warna-aksen);
+}
+
+#Judul::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 72px;
+  height: 5px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    var(--warna-aksen-terang),
+    var(--warna-aksen-muda)
+  );
+}
+
+/* =========================================
+   4. AREA BIODATA DAN INPUT
+========================================= */
+
+.Kotak2 {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* =========================================
+   5. DATA BIODATA
+========================================= */
+
+#KotakData {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: var(--warna-panel);
+  border: 1px solid var(--warna-border-panel);
+  border-radius: 16px;
+}
+
+p {
+  margin-bottom: 9px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+
+  color: var(--warna-teks-sekunder);
+}
+
+.profile_picture {
+  width: 100px;
+  height: 100px;
+
+  background-image: url("./img/images(8).jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-color: black;
+
+  align-self: center;
+  margin-bottom: 16px;
+
+  border-radius: 50%;
+  border: none;
+}
+
+#edit_profile {
+  width: 28px;
+  height: 28px;
+
+  background-color: rgb(119, 118, 118);
+  background-image: url("./img/pencil.png");
+  background-size: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: invert(1);
+
+  transform: translateX(70px);
+  margin-bottom: 16px;
+
+  border-radius: 50%;
+  border: none;
+
+  cursor: pointer;
+
+  transition:
+    width 0.5s,
+    height 0.5s;
+}
+
+#edit_profile:hover {
+  width: 30px;
+  height: 30px;
+}
+
+#KotakData p {
+  margin-bottom: 12px;
+  padding: 14px;
+
+  background: var(--warna-data);
+  border: 1px solid var(--warna-border-data);
+  border-radius: 11px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  overflow-wrap: anywhere;
+}
+
+#KotakData p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   6. LABEL DAN INPUT
+========================================= */
+
+#InputNama,
+[id="Input NIM"],
+[id="Input Prodi"] {
+  min-width: 0;
+  padding: 2px 0;
+  margin-top: 8px;
+}
+
+input[type="text"] {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 15px;
+
+  font: inherit;
+  font-size: 14px;
+  color: var(--warna-teks-utama);
+
+  background: var(--warna-input);
+  border: 1.5px solid var(--warna-border-input);
+  border-radius: 11px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+input[type="text"]::placeholder {
+  color: var(--warna-teks-placeholder);
+}
+
+input[type="text"]:hover {
+  border-color: var(--warna-border-input-hover);
+}
+
+input[type="text"]:focus {
+  background: var(--warna-kartu);
+  border-color: var(--warna-aksen-terang);
+
+  box-shadow: 0 0 0 4px rgba(var(--warna-aksen-rgb), 0.12);
+}
+
+/* =========================================
+   7. TOMBOL PERBARUI DATA
+========================================= */
+
+#tombol_input {
+  grid-column: 2;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-top: 10px;
+}
+
+#UpdateBut {
+  width: 100%;
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    var(--warna-aksen-terang),
+    var(--warna-aksen)
+  );
+
+  color: var(--warna-teks-tombol);
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  box-shadow: var(--bayangan-tombol);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+#UpdateBut:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+
+  box-shadow: var(--bayangan-tombol-hover);
+}
+
+#UpdateBut:active {
+  transform: translateY(0);
+
+  box-shadow: 0 3px 8px rgba(var(--warna-aksen-rgb), 0.18);
+}
+
+#UpdateBut:focus-visible {
+  outline: 3px solid var(--warna-outline-tombol);
+  outline-offset: 4px;
+}
+
+#tombol_input2 {
+  grid-column: 2;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-top: 50px;
+}
+
+#AllBut {
+  width: 49%;
+  padding: 14px 20px;
+
+  margin-right: auto;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    var(--warna-aksen-terang),
+    var(--warna-aksen)
+  );
+
+  color: var(--warna-teks-tombol);
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  box-shadow: var(--bayangan-tombol);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+#AllBut:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+
+  box-shadow: var(--bayangan-tombol-hover);
+}
+
+#AllBut:active {
+  transform: translateY(2px);
+}
+
+#FontBut {
+  width: 49%;
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    var(--warna-aksen-terang),
+    var(--warna-aksen)
+  );
+
+  color: var(--warna-teks-tombol);
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  box-shadow: var(--bayangan-tombol);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+#FontBut:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+
+  box-shadow: var(--bayangan-tombol-hover);
+}
+
+#FontBut:active {
+  transform: translateY(2px);
+}
+
+#pesan {
+  display: none;
+  margin-top: 6px;
+  color: #0daa22;
+}
+
+#pesanX {
+  display: none;
+  margin-top: 6px;
+  color: red;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 14px;
+  }
+
+  .Kotak1 {
+    min-height: 0;
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  #Judul {
+    margin-bottom: 22px;
+    font-size: 25px;
+  }
+
+  .Kotak2 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+  }
+
+  #KotakData {
+    grid-column: 1;
+    grid-row: auto;
+
+    min-height: 400px;
+    padding: 16px;
+  }
+
+  #InputNama,
+  [id="Input NIM"],
+  [id="Input Prodi"],
+  #tombol_input {
+    grid-column: 1;
+  }
+
+  #tombol_input {
+    margin-top: 2px;
+  }
+
+  #UpdateBut {
+    width: 100%;
+  }
+
+  #tombol_input2 {
+    grid-column: 1;
+  }
+
+  #tombol_input2 {
+    margin-top: 2px;
+  }
+}
